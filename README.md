@@ -42,5 +42,6 @@ Or, if you don't want/need a background service you can just run:
   rabbitmq-server
 
 
+http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html
 https://tests4geeks.com/python-celery-rabbitmq-tutorial/
 python -m test_celery.run_tasks

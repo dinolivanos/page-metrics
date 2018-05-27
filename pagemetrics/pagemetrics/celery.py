@@ -3,9 +3,9 @@ import os
 from celery import Celery
 
 # set the default Django settings module for the 'celery' program.
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'metricsapp.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pagemetrics.settings')
 
-app = Celery('metricsapp',
+app = Celery('pagemetrics',
              broker='amqp://pagemetrics:metrics123@localhost/pagemetrics_vhost',
              backend='rpc://')
 
