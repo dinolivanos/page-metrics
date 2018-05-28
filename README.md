@@ -1,4 +1,4 @@
-# Install
+# Install and setup
 Rabbitmq message broker
 
 ```brew install rabbitmq```
@@ -38,7 +38,12 @@ cd pagemetrics
 celery -A pagemetrics worker -l info
 ```
 
+# Testing
 
+```
+cd pagemetrics
+./manage.py test
+```
 
 # Misc
 
@@ -51,3 +56,6 @@ Or, if you don't want/need a background service you can just run:
 http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html
 https://tests4geeks.com/python-celery-rabbitmq-tutorial/
 python -m test_celery.run_tasks
+
+
+./manage.py test metricsapp.tests.ReportTestCase
