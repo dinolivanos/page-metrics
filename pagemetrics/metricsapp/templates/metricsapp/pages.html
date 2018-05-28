@@ -15,6 +15,13 @@
         <tr>
             <td><a href="/metrics/pages/{{ page.id }}/">{{ page.url }}</a></td>
             <td>{{ page.description}}</td>
+            <td>
+                <form action="/remove_items/" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="page_id" value="{{page.id}}"/>
+                    <input type="submit" value="delete item">
+                </form>
+            </td>
         </tr>
         {% endfor %}
 

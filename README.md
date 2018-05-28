@@ -38,6 +38,11 @@ cd pagemetrics
 celery -A pagemetrics worker -l info
 ```
 
+# Django Admin Site
+user name: admin
+
+password: adminadmin
+
 # Testing
 
 ```
