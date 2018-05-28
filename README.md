@@ -59,3 +59,9 @@ python -m test_celery.run_tasks
 
 
 ./manage.py test metricsapp.tests.ReportTestCase
+
+
+python manage.py makemigrations metricsapp
+python manage.py migrate
+
+

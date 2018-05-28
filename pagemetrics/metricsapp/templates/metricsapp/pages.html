@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav>
+    <a href="">Pages</a>
+    <a>Reports</a>
+</nav>
+<section>
+    <table>
+        {% for page in pages %}
+        <tr>
+            <td><a href="/metrics/pages/{{ page.id }}/">{{ page.url }}</a></td>
+            <td>{{ page.description}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
+    <form action="pages" method="post">
+        <label>New page</label>
+        <input type="url" name>
+        <button type="submit">ADD</button>
+    </form>
+</section>
+
+</body>
+</html>
