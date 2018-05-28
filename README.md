@@ -17,8 +17,14 @@ rabbitmqctl set_permissions -p pagemetrics_vhost pagemetrics ".*" ".*" ".*"
 ```
 
 Create celery dB
+
 ```python manage.py migrate django_celery_results```
 
+Create django admin
+
+```bash
+python manage.py createsuperuser
+```
 
 Start rabbitmq
 
@@ -28,8 +34,8 @@ Start celery
 
 
 ```
-cd metricsapp
-celery -A metricsapp worker -l info
+cd pagemetrics
+celery -A pagemetrics worker -l info
 ```
 
 
