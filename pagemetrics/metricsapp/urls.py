@@ -7,4 +7,5 @@ urlpatterns = [
     path('reports', views.reports, name='reports'),
     path('compare', views.compare, name='compare'),
     path('pages', views.pages, name='pages'),
+    path('pages', views.pages_delete, name='pages'),
 ]
