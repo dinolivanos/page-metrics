@@ -31,15 +31,13 @@ def pages(request):
         page_form = PageForm(request.POST)
         if page_form.is_valid():
             page_form.save()
-            return HttpResponseRedirect('pages')
-        else:
-            # TODO handle failed case
-            pass
+            return HttpResponseRedirect(reverse('pages'))
     else:
         page_form = PageForm()
-        pages_list = Page.objects.all()
-        context = {'pages': pages_list, 'form': page_form}
-        return render(request, 'metricsapp/pages.html', context)
+
+    pages_list = Page.objects.all()
+    context = {'pages': pages_list, 'form': page_form}
+    return render(request, 'metricsapp/pages.html', context)
 
 
 def page(request, page_id):
@@ -51,4 +49,3 @@ def pages_delete(request, pageid):
         page = Page.objects.get(pk=pageid)
         page.delete()
         return HttpResponseRedirect(reverse('pages'))
-

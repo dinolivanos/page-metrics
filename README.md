@@ -69,4 +69,11 @@ python -m test_celery.run_tasks
 python manage.py makemigrations metricsapp
 python manage.py migrate
 
+/usr/local/sbin/rabbitmq-server 
+source ~/.virtualenvs/pagemetrics/bin/activate
+celery -A pagemetrics worker -l info
+./manage.py runserver
 
+
+# testing
+invalid url: http://on.com2 
