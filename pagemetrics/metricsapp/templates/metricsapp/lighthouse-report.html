@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .responsive-object iframe {
+            position: absolute;
+            
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<h1>lighthouse report</h1>
+{% load static %}
+<!--<object  width="100%" height="100%" type="text/html" data="{% static "metricsapp/www.google.com_2018-05-26_08-34-58.report.html" %}"></object>-->
+
+    <div class="responsive-object">
+        <iframe src="{% static "metricsapp/www.google.com_2018-05-26_08-34-58.report.html" %}" width="100%" height="100%"></iframe>
+    </div>
+
+</body>
+</html>

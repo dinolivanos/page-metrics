@@ -49,3 +49,6 @@ def pages_delete(request, pageid):
         page = Page.objects.get(pk=pageid)
         page.delete()
         return HttpResponseRedirect(reverse('pages'))
+
+def lighthouse_report(request):
+    return render(request, 'metricsapp/lighthouse-report.html')
