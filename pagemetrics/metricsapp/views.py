@@ -3,6 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .tasks import add
 from .models import Page, Metric, Report
 from django.forms import ModelForm
+from django.urls import reverse
 
 
 def index(request):
@@ -40,5 +41,14 @@ def pages(request):
         context = {'pages': pages_list, 'form': page_form}
         return render(request, 'metricsapp/pages.html', context)
 
-def pages_delete(request):
+
+def page(request, page_id):
     pass
+
+
+def pages_delete(request, pageid):
+    if request.method == 'POST':
+        page = Page.objects.get(pk=pageid)
+        page.delete()
+        return HttpResponseRedirect(reverse('pages'))
+

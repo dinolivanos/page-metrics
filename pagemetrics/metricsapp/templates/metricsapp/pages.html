@@ -8,15 +8,16 @@
 <nav>
     <a href="">Pages</a>
     <a>Reports</a>
+    <a>dd</a>
 </nav>
 <section>
     <table>
         {% for page in pages %}
         <tr>
-            <td><a href="/metrics/pages/{{ page.id }}/">{{ page.url }}</a></td>
+            <td><a href="{% url 'page' page.id%}/">{{ page.url }}</a></td>
             <td>{{ page.description}}</td>
             <td>
-                <form action="/{{ page.id }}/delete" method="post">
+                <form action="{% url 'pages-delete' page.id%}" method="post">
                     {% csrf_token %}
                     <input type="hidden" name="page_id" value="{{page.id}}"/>
                     <input type="submit" value="delete item">
