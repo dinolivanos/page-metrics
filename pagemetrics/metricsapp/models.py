@@ -2,7 +2,8 @@ from django.db import models
 
 SUCCESS = 'SUCCESS'
 PENDING = 'PENDING'
-STATES = frozenset({SUCCESS, PENDING})
+FAILED = 'FAILED'
+STATES = frozenset({SUCCESS, PENDING, FAILED})
 TASK_STATE_CHOICES = sorted(zip(STATES, STATES))
 
 

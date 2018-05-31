@@ -82,6 +82,8 @@ celery -A pagemetrics worker -l info
 The first time you run the CLI you will be prompted with a message asking you if Lighthouse can anonymously report runtime exceptions. The Lighthouse team uses this information to detect new bugs and avoid regressions. Opting out will not affect your ability to use Lighthouse in any way. Learn more.
 
 
+./manage.py migrate  --fake yourapp 0010_my_previous_data_migration
+./manage.py migrate yourapp 0011_my_data_migration
 
 
 # testing
