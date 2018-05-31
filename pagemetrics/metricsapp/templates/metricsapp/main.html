@@ -9,7 +9,7 @@
 <body>
 <nav>
     <a href="{% url 'pages' %}">Pages</a>
-    <a>Reports</a>
+    <a href="{% url 'compare' %}/performance">Compare</a>
     <a href="{% url 'reports-generate' %}">Generate reports</a>
 </nav>
 {% block content %}Main content{% endblock %}

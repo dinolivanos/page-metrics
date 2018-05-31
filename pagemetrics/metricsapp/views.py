@@ -1,26 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .tasks import add, generate_lighthouse_report
+from .tasks import generate_lighthouse_report
 from .models import Page, Metric, Report
 from django.forms import ModelForm
 from django.urls import reverse
 from django.http import Http404
 from django.contrib.staticfiles.templatetags.staticfiles import static
 
+
 def index(request):
-    return HttpResponse("Dino was here")
-
-
-def reports(request):
-    print('DINO reports')
-    add.delay(3, 4)
-    return HttpResponse("reports")
+    return HttpResponse("Nothing to see")
 
 
 def report(request, reportid):
     report = Report.objects.get(pk=reportid)
     if report.metric.name == 'lighthouse':
-        report_path = static(report.report.replace('/static/metricsapp','')) + '.report.html'
+        report_path = static(report.report.replace('/static/metricsapp', '')) + '.report.html'
         print('report path {}'.format(report_path))
         context = {'report_path': report_path}
         return render(request, 'metricsapp/lighthouse-report.html', context)
@@ -37,9 +32,9 @@ def reports_generate(request):
     return HttpResponseRedirect(reverse('pages'))
 
 
-def compare(request):
-    return HttpResponse("compare")
-
+def compare(request, category):
+    context = {'category': 'category'}
+    return render(request, 'metricsapp/compare.html', context)
 
 class PageForm(ModelForm):
     class Meta:

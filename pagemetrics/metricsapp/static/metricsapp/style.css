@@ -8,6 +8,13 @@ nav {
     font-size: 1.5em;
 }
 
+nav.secondary-nav {
+    margin-top:5px;
+    background-color: grey;
+    padding: 20px;
+    font-size: 1em;
+}
+
 .main-content {
     margin-left: auto;
     margin-right: auto;
