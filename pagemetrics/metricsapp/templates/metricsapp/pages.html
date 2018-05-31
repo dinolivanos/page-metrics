@@ -4,7 +4,7 @@
     <table class="main-content">
         {% for page in pages %}
         <tr>
-            <td><a href="{% url 'page' page.id%}/">{{ page.url }}</a></td>
+            <td><a href="{% url 'page' page.id%}">{{ page.url }}</a></td>
             <td>{{ page.description}}</td>
             <td>
                 <form action="{% url 'pages-delete' page.id%}" method="post">
