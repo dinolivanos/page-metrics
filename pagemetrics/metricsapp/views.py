@@ -50,8 +50,15 @@ def pages_delete(request, pageid):
         page.delete()
         return HttpResponseRedirect(reverse('pages'))
 
+
 def lighthouse_report(request):
     return render(request, 'metricsapp/lighthouse-report.html')
+
+
+def reports_generate(requests):
+    print('reports_generate')
+    return HttpResponseRedirect(reverse('pages'))
+
 
 def test_site(request, param):
     context = {'param': param}
