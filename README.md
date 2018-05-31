@@ -48,7 +48,7 @@ password: adminadmin
 ```
 cd pagemetrics
 ./manage.py test
-pytest metricsapp/metrics.py 
+pytest metricsapp/metrics.py  -k 'test_lighthouse_generate_report'
 ```
 
 # Misc
