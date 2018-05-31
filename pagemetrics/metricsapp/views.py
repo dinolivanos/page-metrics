@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from .tasks import add
+from .tasks import add, generate_lighthouse_report
 from .models import Page, Metric, Report
 from django.forms import ModelForm
 from django.urls import reverse
@@ -56,7 +56,9 @@ def lighthouse_report(request):
 
 
 def reports_generate(requests):
-    print('reports_generate')
+    pages = Page.objects.all()
+    for page in pages:
+        generate_lighthouse_report.delay(page.url)
     return HttpResponseRedirect(reverse('pages'))
 
 

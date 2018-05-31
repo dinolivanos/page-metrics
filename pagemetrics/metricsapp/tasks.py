@@ -1,6 +1,8 @@
 from celery import shared_task, states
 import time
 from django_celery_results.models import TaskResult
+from .metrics import lighthouse_generate_report
+from .models import Page, Report, Metric
 
 @shared_task(bind=True)
 def add(self, x, y):
@@ -17,10 +19,9 @@ def add(self, x, y):
 
 
 @shared_task(bind=True)
-def mul(x, y):
-    return x * y
+def generate_lighthouse_report(self, url):
+    print(url)
 
-
-@shared_task(bind=True)
-def xsum(numbers):
-    return sum(numbers)
+    # create pending report in db
+    # get report
+    # update report status and file locations
