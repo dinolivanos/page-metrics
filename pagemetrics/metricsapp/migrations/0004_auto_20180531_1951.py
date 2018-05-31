@@ -30,10 +30,16 @@ class Migration(migrations.Migration):
                ('keywords', 'RAKE based keyword extractor')]
 
     def initial_pages(apps, schema_editor):
-        pass
+        Page = apps.get_model('metricsapp', 'Page')
+        for url, description in Migration.PAGES:
+            page = Page(url=url, description=description)
+            page.save()
 
     def initial_metrics(apps, schema_editor):
-        pass
+        Metric = apps.get_model('metricsapp', 'Metric')
+        for name, description in Migration.METRICS:
+            metric = Metric(name=name, description=description)
+            metric.save()
 
     dependencies = [
         ('metricsapp', '0003_auto_20180528_1225'),
