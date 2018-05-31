@@ -40,8 +40,12 @@ def pages(request):
     return render(request, 'metricsapp/pages.html', context)
 
 
-def page(request, page_id):
-    pass
+def page(request, pageid):
+    page = Page.objects.get(pk=pageid)
+    reports_list = Page.objects.all()
+    context = {'page': page}
+    return render(request, 'metricsapp/page.html', context)
+
 
 
 def pages_delete(request, pageid):

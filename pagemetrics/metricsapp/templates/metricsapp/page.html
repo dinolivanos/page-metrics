@@ -1,0 +1,23 @@
+{% extends "metricsapp/main.html" %}
+{% block content %}
+<section>
+    <h2>{{ page.url }}</h2>
+    <h4> {{ page.description }}</h4>
+    <table class="main-content">
+        {% for page in pages %}
+        <tr>
+            <td><a href="{% url 'page' page.id%}">{{ page.url }}</a></td>
+            <td>{{ page.description}}</td>
+            <td>
+                <form action="{% url 'pages-delete' page.id%}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="page_id" value="{{page.id}}"/>
+                    <input type="submit" value="delete item">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</section>
+{% endblock %}
