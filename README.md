@@ -48,6 +48,7 @@ password: adminadmin
 ```
 cd pagemetrics
 ./manage.py test
+pytest metricsapp/metrics.py 
 ```
 
 # Misc
@@ -73,6 +74,14 @@ python manage.py migrate
 source ~/.virtualenvs/pagemetrics/bin/activate
 celery -A pagemetrics worker -l info
 ./manage.py runserver
+
+
+../lighthouse/node_modules/.bin/lighthouse  --output json --output html --output-path ./metricsapp/static/metricsapp/1.json http://127.0.0.1:8000/metrics/test_site/1
+
+
+The first time you run the CLI you will be prompted with a message asking you if Lighthouse can anonymously report runtime exceptions. The Lighthouse team uses this information to detect new bugs and avoid regressions. Opting out will not affect your ability to use Lighthouse in any way. Learn more.
+
+
 
 
 # testing
