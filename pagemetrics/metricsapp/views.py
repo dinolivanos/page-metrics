@@ -52,3 +52,7 @@ def pages_delete(request, pageid):
 
 def lighthouse_report(request):
     return render(request, 'metricsapp/lighthouse-report.html')
+
+def test_site(request, param):
+    context = {'param': param}
+    return render(request, 'metricsapp/test_site.html', context)

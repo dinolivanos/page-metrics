@@ -1,0 +1,16 @@
+[
+  {
+    "url": "http://www.google.com",
+    "name": "www_google_com",
+    "file": "www_google_com.report.json",
+    "html": "www_google_com.report.html",
+    "score": "74.73"
+  },
+  {
+    "url": "https://docs.python.org/3/",
+    "name": "docs_python_org_3_",
+    "file": "docs_python_org_3_.report.json",
+    "html": "docs_python_org_3_.report.html",
+    "score": "73.77"
+  }
+]

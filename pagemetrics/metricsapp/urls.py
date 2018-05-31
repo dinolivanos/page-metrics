@@ -10,4 +10,5 @@ urlpatterns = [
     path('pages/<int:pageid>', views.page, name='page'),
     path('pages/<int:pageid>/delete', views.pages_delete, name='pages-delete'),
     path('lighthouse-report', views.lighthouse_report, name='lighthouse-report'),
+    path('test_site/<int:param>', views.test_site, name='test-site'),
 ]
