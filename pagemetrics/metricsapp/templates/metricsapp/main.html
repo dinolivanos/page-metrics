@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Page Metrics</title>
+    <link rel="stylesheet" href="{% static "metricsapp/style.css" %}" />
+</head>
+<body>
+<nav>
+    <a href="">Pages</a>
+    <a>Reports</a>
+    <a href="{% url 'reports-generate' %}">Generate reports</a>
+</nav>
+{% block content %}Main content{% endblock %}
+</body>
+</html>

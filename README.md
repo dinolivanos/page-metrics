@@ -86,5 +86,23 @@ The first time you run the CLI you will be prompted with a message asking you if
 ./manage.py migrate metricsapp 0004_auto_20180531_1951
 
 
+
+
+nav a {
+    padding: 10px;
+    color: white;
+}
+nav {
+    background-color: darkcyan;
+    padding: 20px;
+    font-size: 1.5em;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+}
+
 # testing
 invalid url: http://on.com2 
