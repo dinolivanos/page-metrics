@@ -3,18 +3,12 @@
 <section>
     <h2>{{ page.url }}</h2>
     <h4> {{ page.description }}</h4>
-    <table class="main-content">
-        {% for page in pages %}
+    <table class="main-content reports-table">
+        {% for report in reports %}
         <tr>
-            <td><a href="{% url 'page' page.id%}">{{ page.url }}</a></td>
-            <td>{{ page.description}}</td>
-            <td>
-                <form action="{% url 'pages-delete' page.id%}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="page_id" value="{{page.id}}"/>
-                    <input type="submit" value="delete item">
-                </form>
-            </td>
+            <td>{{ report.status }}</td>
+            <td>{{ report.status_date }}</td>
+            <td><a href="{% url 'report' report.id%}">{{ report.metric }}</a></td>
         </tr>
         {% endfor %}
     </table>
