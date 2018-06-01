@@ -1,9 +1,16 @@
-# Install and setup
-setup lighthouse which is a node package
+# Install and setup for MAC
+
+Create a python virtual environment and install packages
+
+```bash
+pip install requirements.txt
+```
+
+Setup lighthouse which is a node package
 
 ```bash
 cd lighthouse
-npm instll
+npm install
 ```
 
 Rabbitmq message broker
