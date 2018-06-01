@@ -1,4 +1,11 @@
 # Install and setup
+setup lighthouse which is a node package
+
+```bash
+cd lighthouse
+npm instll
+```
+
 Rabbitmq message broker
 
 ```brew install rabbitmq```
@@ -26,6 +33,7 @@ Create django admin
 python manage.py createsuperuser
 ```
 
+
 Start rabbitmq
 
 ```/usr/local/sbin/rabbitmq-server ```
@@ -48,61 +56,6 @@ password: adminadmin
 ```
 cd pagemetrics
 ./manage.py test
-pytest metricsapp/metrics.py  -k 'test_lighthouse_generate_report'
+pytest metricsapp/metrics.py
 ```
 
-# Misc
-
-To have launchd start rabbitmq now and restart at login:
-  brew services start rabbitmq
-Or, if you don't want/need a background service you can just run:
-  rabbitmq-server
-
-
-http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html
-https://tests4geeks.com/python-celery-rabbitmq-tutorial/
-python -m test_celery.run_tasks
-
-
-./manage.py test metricsapp.tests.ReportTestCase
-
-
-python manage.py makemigrations metricsapp
-python manage.py migrate
-
-/usr/local/sbin/rabbitmq-server 
-source ~/.virtualenvs/pagemetrics/bin/activate
-celery -A pagemetrics worker -l info
-./manage.py runserver
-
-
-../lighthouse/node_modules/.bin/lighthouse  --output json --output html --output-path ./metricsapp/static/metricsapp/1.json http://127.0.0.1:8000/metrics/test_site/1
-
-
-The first time you run the CLI you will be prompted with a message asking you if Lighthouse can anonymously report runtime exceptions. The Lighthouse team uses this information to detect new bugs and avoid regressions. Opting out will not affect your ability to use Lighthouse in any way. Learn more.
-
-
-./manage.py migrate  --fake metricsapp 0003_auto_20180528_1225
-./manage.py migrate metricsapp 0004_auto_20180531_1951
-
-
-
-
-nav a {
-    padding: 10px;
-    color: white;
-}
-nav {
-    background-color: darkcyan;
-    padding: 20px;
-    font-size: 1.5em;
-}
-
-table {
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px;
-}
-
-# testing
-invalid url: http://on.com2 
