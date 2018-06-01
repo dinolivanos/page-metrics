@@ -6,6 +6,10 @@ from django.forms import ModelForm
 from django.urls import reverse
 from django.http import Http404
 from django.contrib.staticfiles.templatetags.staticfiles import static
+from django.utils.safestring import mark_safe
+from .metrics import lighthouse_scores, ACCESSIBILITY, PERFORMANCE, PWA, BEST_PRACTICES, SEO
+import os
+
 
 
 def index(request):
@@ -32,9 +36,26 @@ def reports_generate(request):
     return HttpResponseRedirect(reverse('pages'))
 
 
+category_metric_map = {'performance': PERFORMANCE,
+                       'pwa': PWA,
+                       'accessibility': ACCESSIBILITY,
+                       'seo': SEO}
+
 def compare(request, category):
-    context = {'category': 'category'}
+    print('cwd {}'.format(os.getcwd()))
+    pages = Page.objects.all()
+    data = []
+    for page in pages:
+        reports = Report.objects.filter(page=page.id, metric__name='lighthouse')
+        report = reports.first()
+        print('report {} {}'.format(report.report, report.page.url))
+        report_path = 'metricsapp' + static(report.report.replace('/static/metricsapp', '')) + '.report.json'
+        scores = lighthouse_scores(report_path)
+        data.append({"name": report.page.url, "value": int(scores[category_metric_map[category]])})
+
+    context = {'category': 'category', 'data': mark_safe(data)}
     return render(request, 'metricsapp/compare.html', context)
+
 
 class PageForm(ModelForm):
     class Meta:

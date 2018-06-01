@@ -28,6 +28,11 @@
         .label {
             font-size: 13px;
         }
+
+        #graphic {
+            padding:0px;
+            padding-left:0px;
+        }
     </style>
 
 </head>
@@ -47,34 +52,7 @@
     <div id="graphic"></div>
 
     <script>
-        var data = [{
-                "name": "Apples",
-                "value": 20,
-        },
-            {
-                "name": "Bananas",
-                "value": 12,
-        },
-            {
-                "name": "Grapes",
-                "value": 19,
-        },
-            {
-                "name": "Lemons",
-                "value": 5,
-        },
-            {
-                "name": "Limes",
-                "value": 16,
-        },
-            {
-                "name": "Oranges",
-                "value": 26,
-        },
-            {
-                "name": "Pears",
-                "value": 30,
-        }];
+        var data = {{ data }};
 
         //sort bars based on value
         data = data.sort(function (a, b) {
